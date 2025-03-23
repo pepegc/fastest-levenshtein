@@ -1,4 +1,4 @@
-const { closest, distance } = require("./mod.js");
+const { closest, distance, ordered } = require("./mod.js");
 
 const levenshtein = (a, b) => {
   if (a.length === 0) {
@@ -64,4 +64,10 @@ test("test find", () => {
   const actual = closest("fast", ["slow", "faster", "fastest"]);
   const expected = "faster";
   expect(actual).toBe(expected);
+});
+
+test("test ordered", () => {
+  const actual = ordered("fast", ["slow", "faster", "fastest"]);
+  const expected = ["faster", "fastest", "slow"];
+  expect(actual).toEqual(expected);
 });

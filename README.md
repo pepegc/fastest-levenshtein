@@ -11,7 +11,7 @@ $ npm i fastest-levenshtein
 ## Usage
 ### Node
 ```javascript
-const {distance, closest} = require('fastest-levenshtein')
+const {closest, distance, ordered} = require('fastest-levenshtein')
 
 // Print levenshtein-distance between 'fast' and 'faster' 
 console.log(distance('fast', 'faster'))
@@ -20,11 +20,15 @@ console.log(distance('fast', 'faster'))
 // Print string from array with lowest edit-distance to 'fast'
 console.log(closest('fast', ['slow', 'faster', 'fastest']))
 //=> 'faster'
+
+// Print string from array with lowest edit-distance to 'fast'
+console.log(ordered('fast', ['slow', 'faster', 'fastest']))
+//=> ['faster', 'fastest', 'slow']
 ```
 
 ### Deno
 ```javascript
-import {distance, closest} from 'https://deno.land/x/fastest_levenshtein/mod.ts'
+import {closest, distance, ordered} from 'https://deno.land/x/fastest_levenshtein/mod.ts'
 
 // Print levenshtein-distance between 'fast' and 'faster' 
 console.log(distance('fast', 'faster'))
@@ -33,6 +37,10 @@ console.log(distance('fast', 'faster'))
 // Print string from array with lowest edit-distance to 'fast'
 console.log(closest('fast', ['slow', 'faster', 'fastest']))
 //=> 'faster'
+
+// Print string from array with lowest edit-distance to 'fast'
+console.log(ordered('fast', ['slow', 'faster', 'fastest']))
+//=> ['faster', 'fastest', 'slow']
 ```
 
 ## Benchmark

@@ -126,12 +126,10 @@ const distance = (a: string, b: string): number => {
   return myers_x(a, b);
 };
 
-const ordered = (str: string, arr: readonly string[]): string[] => {
-  return arr
-    .map(b => [b, distance(str, b)] as [string, number])
-    .sort((a, b) => a[1] - b[1])
-    .map(pair => pair[0]);
-}
+const ordered = (str: string, arr: readonly string[]): string[] => arr
+  .map(b => [b, distance(str, b)] as [string, number])
+  .sort((a, b) => a[1] - b[1])
+  .map(pair => pair[0]);
 
 const closest = (str: string, arr: readonly string[]): string => {
   let minDistance = Infinity;
